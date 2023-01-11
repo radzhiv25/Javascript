@@ -1,0 +1,34 @@
+body{
+    background-color: aliceblue;
+}
+.color-hover{
+    display: flex;
+    justify-content: center;
+}
+.color{
+    margin:30px 20px;
+    padding: 40px;
+    background-color: black;
+    border-radius: 10px;
+}
+.red{
+    background-color: red;
+}
+.cyan{
+    background-color: cyan;
+}
+.violet{
+    background-color: violet;
+}
+.orange{
+    background-color: orange;
+}
+.pink{
+    background-color: pink;
+}
+
+.center{
+    margin: 10px 400px;
+    padding: 100px;
+    border-radius: 50%;
+}

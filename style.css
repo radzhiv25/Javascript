@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 5rem;
+    background-image: linear-gradient(to left, rgb(224, 181, 181) , rgb(110, 110, 159));
+    font-size: small;
+    font-family: sans-serif;
+}
+.num,.follow{
+    margin: 0.5em;
+    text-align: center;
+    font-size: 5em;
+    color: white;
+}
+.follow{
+    margin: 0.5em;
+}
