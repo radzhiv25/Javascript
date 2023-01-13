@@ -301,16 +301,111 @@ for(const n in symbols){
     console.log(`The key is : ${n} and value is : ${symbols[n]}`);
 }
 
-var counter = document.querySelector(".num");
-var follower = document.querySelector(".follow");
-let count = 1;
-setInterval(() => {
-    if(count < 1000){
-        count++;
-        counter.innerText = count;
-    }
-},1);
+// var counter = document.querySelector(".num");
+// var follower = document.querySelector(".follow");
+// let count = 1;
+// setInterval(() => {
+//     if(count < 1000){
+//         count++;
+//         counter.innerText = count;
+//     }
+// },1);
 
-setTimeout( () => {
-    follower.innerText = "Followers on Instagram";
-},4500);
+// setTimeout( () => {
+//     follower.innerText = "Followers on Instagram";
+// },5000);
+
+var user2 = function (firstName, courseCount){
+    // defing teh object 
+    this.firstName = firstName;
+    this.courseCount = courseCount;
+    this.getCourseCount = function(){
+        console.log(`Course Count is ${this.courseCount}`)
+    }
+}
+user2.prototype.getFirstName = function(){
+    console.log(`Your firstname is : ${this.firstName}`)
+}
+var raj = new user2("Rajeev",2);
+raj.getCourseCount();
+
+if(raj.hasOwnProperty("firstName")){
+    raj.getFirstName();
+}
+
+var sam = new user2("Sam",3);
+sam.getCourseCount();
+sam.getFirstName();
+
+var user3 = {
+    name : "",
+    getUserName : function(){
+        console.log(`User name is : ${this.name}`);
+    },
+};
+
+var rajeev = Object.create(user3);
+console.log(rajeev);
+rajeev.name = "Rajeev Krishna";
+rajeev.getUserName();
+
+var same = Object.create(user3,{
+    name: {value: "Sammy"},
+    courseCount: {value: 3},
+})
+same.getUserName();
+
+// self executing function 
+(function hello(){
+    console.log("Hey there!");
+    console.log("This is javascript!");
+}());
+
+// lexial scopting 
+function init(){
+    var firstName = "Rajeev";
+    function sayFirstName(){
+        console.log(firstName);
+    }
+    sayFirstName()
+}
+init();
+console.log(firstName);
+
+// this is closure
+function doAddition(x){
+    return function(y){
+        return x+y;
+    }
+}
+var doAdd = doAddition(4);
+console.log(doAdd(5));
+console.log(doAddition(5)(9)); // curring 
+
+// binding 
+const raj1 = {
+    firstName : "Rajeev",
+    lastname : "Krishna",
+    role : "admin",
+    courseCount : 3,
+    getInfo: function(){
+        console.log(`
+        First name is ${this.firstName}
+        Last name is ${this.lastName}
+        His role is ${this.role}
+        and he is studying ${this.courseCount}`)
+    },
+};
+  
+const dj = {
+    firstName : "Dwayne",
+    lastName: "Johnson",
+    role: "subadmin",
+    courseCount : 4
+}
+
+raj1.getInfo();
+raj1.getInfo.call(dj);
+// raj1.getInfo.bind(dj)();
+var djInfo = raj1.getInfo.bind(dj);
+djInfo();
