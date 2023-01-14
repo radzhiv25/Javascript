@@ -409,3 +409,155 @@ raj1.getInfo.call(dj);
 // raj1.getInfo.bind(dj)();
 var djInfo = raj1.getInfo.bind(dj);
 djInfo();
+
+//`` is also used for template literals
+
+// maps
+var myMap = new Map();
+
+myMap.set(0, "hey");
+myMap.set(1, "there");
+myMap.set(2, "how");
+myMap.set(3, "are");
+myMap.set(4, "you");
+
+console.log(myMap);
+// for(let key of myMap.keys()){
+//     console.log(`Key is ${key}`);
+// }
+
+// for(let value of myMap.values()){
+//     console.log(`Value is ${value}`);
+// }
+for(let [key, value] of myMap){
+    console.log(`The key is ${key} and the value is ${value}`);
+}
+
+// spread and rst operator 
+var returnValue = Math.max(1,4,5,7,9);
+console.log(returnValue);
+
+var myObj = {};
+Object.assign(myObj, {a:1,b:2,c:3}, {d:4,e:5,f:6});
+console.log(myObj);
+
+function sumOne(a,b){
+    return a+b;
+}
+var myA = [6,7];
+console.log(sumOne(...myA)); // spread operator
+
+function sumTwo(a,b ,...args){ // rest operator
+    let multi = a*b;
+    let sum = 0;
+    for(const arg of args){
+        sum += arg;
+    }
+    return [multi, sum];
+}
+console.log(sumTwo(2,3,1,1,1)); 
+
+// classes and object 
+
+class User {
+    constructor(name, email){
+        this.name = name;
+        this.email = email;
+    }
+    courseList = [];
+    getInfo(){
+        return {name: this.name, email: this.email};
+    }
+    enrollCourse(name){
+        this.courseList.push(name);
+    }
+    getCourseList(){
+        return this.courseList;
+    }
+    login(){
+        return "You are logged in";
+    }
+}
+
+// inheritance
+class SubAdmin extends User{
+    constructor(name,email){
+        super(name,email);
+    }
+    getAdminInfo(){
+        return "I am SubAdmin";
+    }
+    login(){
+        return "Login for admin only";
+    }
+}
+module.exports = User;
+
+const rock = new User("rock","rock@gmail.com");
+console.log(rock.getInfo());
+rock.enrollCourse("Angular Bootcamp");
+console.log(rock.getCourseList());
+console.log(rock.courseList);
+
+const tom = new SubAdmin("tom","tom@gmail.com");
+console.log(tom.getAdminInfo());
+console.log(tom.login());
+console.log(tom.getInfo());
+
+const uno = () => {
+    console.log("I am one")
+}
+const dos = () => {
+    // setTimeout(() =>{
+    //     console.log("Woooohoooooo")
+    // },1000);
+    console.log("I am two")
+}
+const tres = () => {
+    console.log("I am three")
+}
+uno();
+tres();
+dos();
+
+//
+const uno1 = () => {
+    return "I am one";
+}
+// const dos2 = async () => {
+//     setTimeout(() =>{
+//         return "I am Two";
+//     },3000);
+// }
+// promise being used
+const dos2 = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("I've got that"); // resolve being used
+        },3000);
+    });
+};
+
+const tres3 = () => {
+    return "I am three";
+}
+
+const callMe = async () => {
+    let valOne = uno1();
+    console.log(valOne); 
+    let valTwo = await dos2(); // await being used
+    console.log(valTwo); 
+    let valThree = tres3();
+    console.log(valThree); 
+};
+callMe()
+
+// API
+fetch('https://api.chucknorris.io/jokes/random')
+.then((response) => {
+    return response.json();
+})
+.then((data) => {
+    var joke = data.value;
+    console.log("Joke",joke);
+});
