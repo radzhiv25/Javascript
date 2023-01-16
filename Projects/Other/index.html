@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TO-DO Application</title>
+</head>
+<body>
+<!-- <input type="text" name="" id="myForm" placeholder="Search here">
+<button onclick="myValidation()">Click Me</button> -->
+<!-- This is was for form validation -->
+<!-- <form class="myForm">
+    <input type="text" name="username" placeholder="Username">
+    <input type="text" name="realname" placeholder="Real Name">
+    <button type="submit">Submit</button>
+</form> -->
+<div id="container" class="text-center mt-10 bg-blue-300 mx-20 p-5 rounded-md">
+    <div class="controls">
+        <h1 class="text-2xl p-2">My Awesome ToDo</h1>
+        <input type="text" id="input" class="p-2 rounded-md bg-gray-200">
+        <div class="btn flex justify-center space-x-5 p-5">
+            <button type="button" id="add" class="p-2 bg-blue-400 rounded-md">Add ToDo</button>
+            <button type="button" id="remove" class="p-2 bg-red-400 rounded-md">Remove ToDo</button>
+        </div>
+    </div>
+    <ul id="list" class="space-y-2">
+        <li class="myCheck p-2 bg-gray-300 text-left rounded-md"><input type="checkbox" name="" id="check" class="mr-2"><label for="">Go to Gym</label></li>
+        <li class="myCheck p-2 bg-gray-300 text-left rounded-md"><input type="checkbox" name="" id="check" class="mr-2"><label for="">Do some Code</label></li>
+    </ul>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

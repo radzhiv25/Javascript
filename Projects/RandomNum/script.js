@@ -11,7 +11,7 @@ let prom = () => {
 }
 let atp = () => {
     setTimeout(() => {
-        return at = document.querySelector('.at').innerText = "You have entered: " + num1;
+        return at = document.querySelector('.at').innerText = "You have entered : " + num1;
     },4000)
 }
 btn.addEventListener("click", (num) => {
